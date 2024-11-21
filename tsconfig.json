@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "types": [
+      "node"
+    ],
+    "target": "esnext",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "noEmit": false,
+    "emitDeclarationOnly": false,
+    "declaration": true,
+    "allowImportingTsExtensions": false,
+  },
+}

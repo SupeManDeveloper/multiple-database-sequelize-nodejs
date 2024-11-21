@@ -1,0 +1,28 @@
+{
+  "scripts": {
+    "dev": "nodemon src/app.ts",
+    "build": "rimraf ./build && tsc",
+    "start": "nodemon src/app.js",
+    "audio:migrate": "sequelize --options-path ./.sequelize-audio --env audio db:migrate",
+    "audio:migrate:undo:all": "sequelize --options-path ./.sequelize-audio --env audio db:migrate:undo:all",
+    "audio:seed": "sequelize --options-path ./.sequelize-audio --env audio db:seed:all",
+    "audio:seed:undo:all": "sequelize --options-path ./.sequelize-audio --env audio db:seed:undo:all"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.9.0",
+    "nodemon": "^3.1.7",
+    "sequelize-cli": "^6.6.2",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "pg": "^8.13.1",
+    "pg-hstore": "^2.3.4",
+    "rimraf": "^6.0.1",
+    "sequelize": "^6.37.5",
+    "uuid": "^11.0.3"
+  }
+}
