@@ -28,6 +28,17 @@ module.exports = {
                     bigNumberStrings: true,
                 },
             },
+            user: {
+                username: dbVariables.dbUserUsername,
+                password: dbVariables.dbUserPassword,
+                database: dbVariables.dbUserName,
+                host: dbVariables.dbUserHost,
+                port: secrets.port,
+                dialect: secrets.dialect,
+                dialectOptions: {
+                    bigNumberStrings: true,
+                },
+            },
         },
     },
     audio: {
@@ -35,6 +46,17 @@ module.exports = {
         password: dbVariables.dbAudioPassword,
         database: dbVariables.dbAudioName,
         host: dbVariables.dbAudioHost,
+        port: secrets.port,
+        dialect: secrets.dialect,
+        dialectOptions: {
+            bigNumberStrings: true,
+        },
+    },
+    user: {
+        username: dbVariables.dbUserUsername,
+        password: dbVariables.dbUserPassword,
+        database: dbVariables.dbUserName,
+        host: dbVariables.dbUserHost,
         port: secrets.port,
         dialect: secrets.dialect,
         dialectOptions: {

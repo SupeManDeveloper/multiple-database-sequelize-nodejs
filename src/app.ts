@@ -16,8 +16,17 @@ app.get("/audios", async (req: Request, res: Response) => {
     res.json(audios)
 });
 
+app.get("/users", async (req: Request, res: Response) => {
+    const users = await db.User.findAll();
+    res.json(users)
+});
+
 app.listen(port, async () => {
     try {
+        await db.User.sequelize.authenticate()
+        await db.User.sequelize.sync();
+        await db.Audio.sequelize.authenticate()
+        await db.Audio.sequelize.sync();
         console.log('Connection has been established successfully.');
     } catch (error: any | Error) {
         console.error('Unable to connect to the database:', error?.message);

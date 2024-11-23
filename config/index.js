@@ -8,7 +8,7 @@ exports.default = config;
 const dotenv_1 = __importDefault(require("dotenv"));
 const path_1 = __importDefault(require("path"));
 const dbConfig_1 = require("../helpers/dbConfig");
-const env = "development";
+const env = process.env.NODE_ENV || "development";
 let envfile;
 switch (env) {
     default:

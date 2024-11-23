@@ -9,6 +9,7 @@ const fetchAllDbConfig = (envpath) => {
     dotenv_1.default.config({ path: envpath });
     const DBs = {
         AUDIO: "Audio",
+        USER: "User",
     };
     const dbVariables = {
         dbAudioURL: "",
@@ -16,6 +17,11 @@ const fetchAllDbConfig = (envpath) => {
         dbAudioHost: "",
         dbAudioPassword: "",
         dbAudioUsername: "",
+        dbUserURL: "",
+        dbUserName: "",
+        dbUserHost: "",
+        dbUserPassword: "",
+        dbUserUsername: "",
     };
     for (let [key, value] of Object.entries(DBs)) {
         dbVariables[`db${value}URL`] = process.env[`DB_${key}_URL`] || "";

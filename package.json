@@ -3,10 +3,18 @@
     "dev": "nodemon src/app.ts",
     "build": "rimraf ./build && tsc",
     "start": "nodemon src/app.js",
-    "audio:migrate": "sequelize --options-path ./.sequelize-audio --env audio db:migrate",
-    "audio:migrate:undo:all": "sequelize --options-path ./.sequelize-audio --env audio db:migrate:undo:all",
-    "audio:seed": "sequelize --options-path ./.sequelize-audio --env audio db:seed:all",
-    "audio:seed:undo:all": "sequelize --options-path ./.sequelize-audio --env audio db:seed:undo:all"
+    "sample:audio:migrate": "cd ./db/models/audio && npx sequelize-cli model:generate --name Audio --attributes name:string --models-path ./",
+    "sample:user:migrate": "cd ./db/models/user && npx sequelize-cli model:generate --name User --attributes name:string --models-path ./",
+    "sample:audio:seed": "cd ./db/models/user && npx sequelize-cli seed:generate --name demo-audio --models-path ./",
+    "sample:user:seed": "cd ./db/models/user && npx sequelize-cli seed:generate --name demo-user --models-path ./",
+    "user:migrate": "bun run build && sequelize --options-path ./.sequelize-user --env user db:migrate",
+    "user:migrate:undo:all": "bun run build && sequelize --options-path ./.sequelize-user --env user db:migrate:undo:all",
+    "user:seed": "bun run build && sequelize --options-path ./.sequelize-user --env user db:seed:all",
+    "user:seed:undo:all": "bun run build && sequelize --options-path ./.sequelize-user --env user db:seed:undo:all",
+    "audio:migrate": "bun run build && sequelize --options-path ./.sequelize-audio --env audio db:migrate",
+    "audio:migrate:undo:all": "bun run build && sequelize --options-path ./.sequelize-audio --env audio db:migrate:undo:all",
+    "audio:seed": "bun run build && sequelize --options-path ./.sequelize-audio --env audio db:seed:all",
+    "audio:seed:undo:all": "bun run build && sequelize --options-path ./.sequelize-audio --env audio db:seed:undo:all"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",

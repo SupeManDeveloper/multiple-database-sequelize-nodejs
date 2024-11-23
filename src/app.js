@@ -15,8 +15,16 @@ app.get("/audios", async (req, res) => {
     const audios = await index_2.db.Audio.findAll();
     res.json(audios);
 });
+app.get("/users", async (req, res) => {
+    const users = await index_2.db.User.findAll();
+    res.json(users);
+});
 app.listen(port, async () => {
     try {
+        await index_2.db.User.sequelize.authenticate();
+        await index_2.db.User.sequelize.sync();
+        await index_2.db.Audio.sequelize.authenticate();
+        await index_2.db.Audio.sequelize.sync();
         console.log('Connection has been established successfully.');
     }
     catch (error) {

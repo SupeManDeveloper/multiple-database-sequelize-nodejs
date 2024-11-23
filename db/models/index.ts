@@ -1,14 +1,15 @@
 import * as fs from "fs";
 import * as path from "path";
 import { DataTypes, Model, ModelStatic, Sequelize } from "sequelize";
+import configEnv from "../../config/index";
 
 const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || "development";
+const env = configEnv().env || "development";
 const config = require(path.resolve("./config", "config.ts"))[env];
+console.log(config, "database configs");
 
 const sequelizeInstances: { [key: string]: Sequelize } = {};
 const db: { [key: string]: ModelStatic<Model<any, any>> } = {};
-
 const databases = Object.keys(config.databases);
 
 for (let i = 0; i < databases.length; ++i) {
@@ -53,3 +54,4 @@ Object.keys(db).forEach((modelName) => {
 });
 
 export { db, sequelizeInstances };
+

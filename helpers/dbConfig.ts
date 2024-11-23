@@ -6,6 +6,11 @@ export type DbConfig = {
     dbAudioHost: string;
     dbAudioPassword: string;
     dbAudioUsername: string;
+    dbUserURL: string;
+    dbUserName: string;
+    dbUserHost: string;
+    dbUserPassword: string;
+    dbUserUsername: string;
 };
 
 export const fetchAllDbConfig = (envpath?: string): DbConfig => {
@@ -13,6 +18,7 @@ export const fetchAllDbConfig = (envpath?: string): DbConfig => {
 
     const DBs = {
         AUDIO: "Audio",
+        USER: "User",
     };
 
     const dbVariables: DbConfig = {
@@ -21,6 +27,11 @@ export const fetchAllDbConfig = (envpath?: string): DbConfig => {
         dbAudioHost: "",
         dbAudioPassword: "",
         dbAudioUsername: "",
+        dbUserURL: "",
+        dbUserName: "",
+        dbUserHost: "",
+        dbUserPassword: "",
+        dbUserUsername: "",
     };
     for (let [key, value] of Object.entries(DBs)) {
         dbVariables[`db${value}URL`] = process.env[`DB_${key}_URL`] || "";
